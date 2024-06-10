@@ -1,0 +1,9 @@
+.menu ul{
+    display: flex;
+    padding: 0;
+    list-style: none;
+    position: fixed;
+    justify-content: center;
+    align-content: center;
+    top: 0;
+}
