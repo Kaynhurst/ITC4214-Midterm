@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded' ,(event) =>{
             console.log("Dark Mode") ;
             isDarkMode = true ;
         }
-        
+
         checkMode = !checkMode ;
     }
     );
@@ -34,9 +34,9 @@ function darkModeEnable (){
     darkmode.style.color= "#FCF3F6" ;
     
     button.innerHTML = "Light Mode" ;
-    button.style.backgroundColor = "#ffff" ;
+    button.style.backgroundColor = "#FFFF" ;
     button.style.color = "#000000" ;
-    table.style.color = "white" ;
+    table.style.color = "#FFFFFF" ;
 }   
 
 function lightModeEnable(){
@@ -44,13 +44,13 @@ function lightModeEnable(){
     const button = document.querySelector("#darkmode") ;
     const table = document.querySelector("#contents") ;
 
-    lightmode.style.backgroundColor = "#ffff" ;
+    lightmode.style.backgroundColor = "#FFFF" ;
     lightmode.style.color = "#000000" ;
 
     button.innerHTML = "Dark Mode" ;
     button.style.backgroundColor = "#000000" ;
-    button.style.color = "#ffff";
-    table.style.color = "black" ;
+    button.style.color = "#FFFF";
+    table.style.color = "#000000" ;
 
 }
 
