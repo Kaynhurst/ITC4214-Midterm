@@ -7,7 +7,6 @@ body{
     padding : 3% ;
     font-size: 100%;
     background-color: hsla(180, 100%, 99%, 0.75);
-    position: absolute;
 
 }
 
@@ -22,6 +21,14 @@ footer{
 .nav li{
     font-size: larger;
     padding:5px;
+}
+
+.menu{
+    position: sticky;
+    top: 0 ;
+    background-color: hsl(0, 0%, 100%); 
+    padding-right: 50%;
+    align-items: start;
 }
 
 .menu .logo{
@@ -45,4 +52,12 @@ footer{
     font-size: 10px;
     text-align: right;
     align-items: right;
+}
+
+#contents {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow-x: scroll; 
+    margin: 0;
 }
