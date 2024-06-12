@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded' ,(event) =>{
             console.log("Dark Mode") ;
             isDarkMode = true ;
         }
+        
         checkMode = !checkMode ;
     }
     );
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded' ,(event) =>{
 function darkModeEnable (){
     const darkmode = document.querySelector("body") ;
     const button = document.querySelector("#darkmode") ;
+    const table = document.querySelector("#contents") ;
 
     darkmode.style.backgroundColor= "#2D2E40" ;
     darkmode.style.color= "#FCF3F6" ;
@@ -34,11 +36,13 @@ function darkModeEnable (){
     button.innerHTML = "Light Mode" ;
     button.style.backgroundColor = "#ffff" ;
     button.style.color = "#000000" ;
+    table.style.color = "white" ;
 }   
 
 function lightModeEnable(){
     const lightmode = document.querySelector("body") ;
     const button = document.querySelector("#darkmode") ;
+    const table = document.querySelector("#contents") ;
 
     lightmode.style.backgroundColor = "#ffff" ;
     lightmode.style.color = "#000000" ;
@@ -46,6 +50,7 @@ function lightModeEnable(){
     button.innerHTML = "Dark Mode" ;
     button.style.backgroundColor = "#000000" ;
     button.style.color = "#ffff";
+    table.style.color = "black" ;
 
 }
 
