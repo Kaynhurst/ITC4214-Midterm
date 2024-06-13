@@ -6,7 +6,7 @@ body{
     white-space: nowrap;
     padding : 3% ;
     font-size: 100%;
-    background-color: hsla(180, 100%, 99%, 0.75);
+    background-color: #faffffd8;
 
 }
 
@@ -14,7 +14,7 @@ footer{
     position:relative ;
     vertical-align: bottom;
     padding: 5px;
-    margin-top : 95%;
+    margin-top : 35%;
  
 }
 
@@ -26,7 +26,7 @@ footer{
 .menu{
     position: sticky;
     top: 0 ;
-    background-color: hsl(0, 0%, 100%); 
+    background-color: #faffff; 
     padding-right: 50%;
     align-items: start;
 }
@@ -60,4 +60,11 @@ footer{
     max-width: 100%;
     overflow-x: scroll; 
     margin: 0;
+}
+
+.sort , .edit{
+    background-color: hsl(281, 78%, 75%); 
+    font-size: small;
+    border: 0px;
+    border-radius: 25%;
 }
