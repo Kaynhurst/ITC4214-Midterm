@@ -5,72 +5,72 @@
 /*Sorting System */   {
     
     document.addEventListener('DOMContentLoaded' ,(event) =>{
-        const idSort = document.querySelector("#idSort");
-        const nameSort = document.querySelector("#nameSort");
-        const rateSort = document.querySelector("#rateSort") ;
-        let arrow = false ;
+    const idSort = document.querySelector("#idSort");
+    const nameSort = document.querySelector("#nameSort");
+    const rateSort = document.querySelector("#rateSort") ;
+    let arrow = false ;
 
 
-        //Sort table by ID
-        idSort.addEventListener('click',()=>{
-            console.log("ID Sort") ;
+//Sort table by ID
+    idSort.addEventListener('click',()=>{
+        console.log("ID Sort") ;
 
-            //Ascending order sort
-            if(!arrow){
-                $('#idSort > #icon').removeClass('bi bi-arrow-bar-down small-icon') ;
-                $('#idSort > #icon').addClass('bi bi-arrow-bar-up small-icon');
-                arrow = !arrow ;
-            }
-            //Descending order sort
-            else{
-                $('#idSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
-                $('#idSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
-                arrow = !arrow;
-            }
+        //Ascending order sort
+        if(!arrow){
+            $('#idSort > #icon').removeClass('bi bi-arrow-bar-down small-icon') ;
+            $('#idSort > #icon').addClass('bi bi-arrow-bar-up small-icon');
+            arrow = !arrow ;
+        }
+        //Descending order sort
+        else{
+            $('#idSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+            $('#idSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+            arrow = !arrow;
+        }
             
 
-        });
+    });
 
-        //Sort table by name 
-        nameSort.addEventListener('click',()=>{
-            console.log("Name Sort") ;
+//Sort table by name 
+    nameSort.addEventListener('click',()=>{
+        console.log("Name Sort") ;
 
-            //Ascending order sort
-            if(!arrow){
-                $('#nameSort > #icon').removeClass('bi bi-arrow-bar-down small-icon') ;
-                $('#nameSort > #icon').addClass('bi bi-arrow-bar-up small-icon');
-                arrow = !arrow ;
-            }
-            //Descending order sort
-            else{
-                $('#nameSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
-                $('#nameSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
-                arrow = !arrow;
-            }
+        //Ascending order sort
+        if(!arrow){
+            $('#nameSort > #icon').removeClass('bi bi-arrow-bar-down small-icon') ;
+            $('#nameSort > #icon').addClass('bi bi-arrow-bar-up small-icon');
+            arrow = !arrow ;
+        }
+        //Descending order sort
+        else{
+            $('#nameSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+            $('#nameSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+            arrow = !arrow;
+        }
 
         
-        //Sort table by Rating
-        rateSort.addEventListener('click',()=>{
-            console.log("Rate Sort") ;
+//Sort table by Rating
+    rateSort.addEventListener('click',()=>{
+        console.log("Rate Sort") ;
 
-            //Ascending order sort
-            if(!arrow){
-                $('#rateSort > #icon').removeClass('bi bi-arrow-bar-down small-icon') ;
-                $('#rateSort > #icon').addClass('bi bi-arrow-bar-up small-icon');
+        //Ascending order sort
+        if(!arrow){
+            $('#rateSort > #icon').removeClass('bi bi-arrow-bar-down small-icon') ;
+            $('#rateSort > #icon').addClass('bi bi-arrow-bar-up small-icon');
                 arrow = !arrow ;
             }
-            //Descending order sort
-            else{
-                $('#rateSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
-                $('#rateSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
-                arrow = !arrow;
+        //Descending order sort
+        else{
+            $('#rateSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+            $('#rateSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+            arrow = !arrow;
             }
             
 
-        });
-        });
-    
     });
+    });
+    
+});
 }
 
 /*Dark Mode */    {
@@ -160,4 +160,4 @@
     
     
     
-    }    
+    }
