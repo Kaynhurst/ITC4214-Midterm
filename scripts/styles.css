@@ -42,7 +42,7 @@ footer{
     position: relative  ;
 }
 
-.newedit{
+#newEdit{
     background-color: rgb(216, 100, 255);
     border-radius: 5px;
     box-shadow: 5px 5px hsl(0, 0%, 53%,45%);
@@ -62,7 +62,7 @@ footer{
     margin: 0;
 }
 
-.sort , .edit{
+.sort , .edit {
     background-color: hsl(281, 78%, 75%); 
     font-size: small;
     border: 0px;
