@@ -99,15 +99,15 @@
 
 $(document).ready(function(){
     const tableData = [
-        { id: 1, name: "Assassin's Creed III", rating: 6.7 },
-        { id: 2, name: "Persona 5 Royal", rating: 8.9 },
-        { id: 3, name: "Fallout : New Vegas", rating: 7.4 },
-        { id: 4, name: "Watch Dogs 2", rating: 9.2 },
+        { id: 1, name: "Assassin's Creed III", rating: 6},
+        { id: 2, name: "Persona 5 Royal", rating: 8 },
+        { id: 3, name: "Fallout : New Vegas", rating: 7},
+        { id: 4, name: "Watch Dogs 2", rating: 9},
         { id: 5, name: "Minecraft", rating: 10 },
-        { id: 6, name: "Call of Duty: Blacks Ops 4", rating: 3.8 },
+        { id: 6, name: "Call of Duty: Blacks Ops 4", rating: 3},
         { id: 7, name: "Hades", rating: 10 },
-        { id: 8, name: "Fortnite", rating: 2.3 },
-        { id: 9, name: "Cyberpunk 2077", rating: 7.2 },
+        { id: 8, name: "Fortnite", rating: 2},
+        { id: 9, name: "Cyberpunk 2077", rating: 7},
         { id: 10, name: "Bloodborne", rating: 10 }
     ];
     
@@ -135,10 +135,10 @@ $(document).ready(function(){
                 data.forEach(item => {
                     const $row = $('<tr></tr>');
 
-                    $row.append(`<td>${item.id}</td>`);
-                    $row.append(`<td>${item.name}</td>`);
-                    $row.append(`<td>${item.rating}</td>`);
-                    $row.append('<td><button class="edit">Edit</button></td>');
+                    $row.append(`<td data-type="gameID" >${item.id}</td>`);
+                    $row.append(`<td data-type="gameName" >${item.name}</td>`);
+                    $row.append(`<td data-type="gameRating">${item.rating}</td>`);
+                    $row.append('<td><button id= "editButton" class="edit">Edit</button></td>');
 
                     $tbody.append($row);
                 });
@@ -148,30 +148,51 @@ $(document).ready(function(){
                 return $table;
             }
             
-            
-
-
             // Insert the table into the page
             $('#table').append(generateTable(tableData));
             checkDarkMode();
+});
+
+
 
     //Add entry to table
 
-        function newEntry(){
-            
-            $document.querySelector("#additionForm").submit();
-            console.log("Name is :",gameName," and the rating is:",gameRating) ;
-        }
+    $("#newEdit").click(function(){
+        //Show or hide the new Entry Form            
+        $("#additionForm").toggleClass("d-none");
+                
+    });
+    
+    $("#additionForm").on("submit",function(event){
+        event.preventDefault() ;    //Prevent the page from refreshing
 
-        $("#newEdit").click(function(){
-            //Show or hide the new Entry Form            
-            $("#additionForm").toggleClass("d-none");
-            
-         });
+        const newGame = $("#gameName").val();
+        const newRating = $("#gameRating").val();
 
+        let tableID = $("table tbody tr td[data-type='gameID']").map(function() {
+            return parseInt($(this).text());
+        }).get();
+
+        let newID = (Math.max(...tableID)) + 1 ;
+
+        const $row = $('<tr></tr>');
+        $row.append(`<td data-type="gameID">${newID}</td>`);
+        $row.append(`<td data-type="gameName" >${newGame}</td>`);
+        $row.append(`<td data-type="gameRating" >${newRating}</td>`);
+        $row.append('<td><button id= "editButton" class="edit">Edit</button></td>');
+
+        $("table tbody").append($row) ;
         
-});
+        //Clear Form for a new Entry
+        $("#gameName").val('');
+        $("#gameRating").val('');
+        
+    }); 
 
+    //Edit Button
+    $("table tbody tr #editButton").click(function(){
+        alert("Edit Button")
+    });
 }
 
 /*Sorting System */ {

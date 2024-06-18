@@ -67,19 +67,21 @@
             Video Game Rating Table 
             <button id = "newEdit" class="btn-block m-1" type="button">New</button>
 
-            <div id="additionForm" class="text-start d-block">
-                <form>
-                    <label for = "name">Videogame name :</label>
-                    <input type="text" name="gameName"><br>
+            <form id="additionForm" class="text-start d-none">
+                <div class="mb-3">
+                    <label for="gameName" class="formLabel">Game Name</label>
+                    <input type="text" class="form-control" id="gameName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="gameRating" class="formLabel">Rating (out of 10)</label>
+                    <input type="number" class="form-control" id="gameRating" min="0" max="10" step = "0.1"required>
+                </div>
+                <button id ="submit" type="submit" class="btn">Add Game</button>
 
-                    <label for ="rate">Rating: </label>
-                    <input id = "rating" class="m-2" type = "text" name="gameRating"><br>
-                    <input class= "m-1" type = "submit" value="Add game !" onclick="newEntry()">
-                    
-                </form>
-            </div>
+            </form>
+
             <div id="table"></div>
-        </div>
+            </div>
        
         <!--Copyright Footer-->
         <footer class="bg-info text-center small border-bottom">

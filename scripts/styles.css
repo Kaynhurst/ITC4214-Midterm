@@ -13,7 +13,6 @@ body{
 footer{
     position:relative ;
     vertical-align: bottom;
-    padding: 5px;
     margin-top : 35%;
  
 }
@@ -69,15 +68,6 @@ footer{
     border-radius: 25%;
 }
 
-#additionForm{
-    display: block;
-    margin-top: 15px ;
-    border :#faffffd8 ;
-    position: relative ;
-
-
-}
-
-#rating{
-    width: 15%;
+#submit{
+    background-color: hsl(281, 78%, 75%); 
 }
