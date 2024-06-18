@@ -63,11 +63,24 @@
         </div>
 
         <!--Rating table-->
-        <div class="p-3 text-center">
-            Video Game Rating Table <button id = "newEdit" class="btn-block m-1" type="button">New</button>
+        <div id="contentTable" class="p-3 text-center">
+            Video Game Rating Table 
+            <button id = "newEdit" class="btn-block m-1" type="button">New</button>
+
+            <div id="additionForm" class="text-start d-block">
+                <form>
+                    <label for = "name">Videogame name :</label>
+                    <input type="text" name="gameName"><br>
+
+                    <label for ="rate">Rating: </label>
+                    <input id = "rating" class="m-2" type = "text" name="gameRating"><br>
+                    <input class= "m-1" type = "submit" value="Add game !" onclick="newEntry()">
+                    
+                </form>
+            </div>
             <div id="table"></div>
         </div>
-        
+       
         <!--Copyright Footer-->
         <footer class="bg-info text-center small border-bottom">
             <i class="bi bi-c-circle-fill"></i> Copyright 2024<br>

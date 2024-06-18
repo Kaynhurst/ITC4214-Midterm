@@ -68,3 +68,16 @@ footer{
     border: 0px;
     border-radius: 25%;
 }
+
+#additionForm{
+    display: block;
+    margin-top: 15px ;
+    border :#faffffd8 ;
+    position: relative ;
+
+
+}
+
+#rating{
+    width: 15%;
+}

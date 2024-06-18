@@ -158,14 +158,18 @@ $(document).ready(function(){
     //Add entry to table
 
         function newEntry(){
-
+            
+            $document.querySelector("#additionForm").submit();
+            console.log("Name is :",gameName," and the rating is:",gameRating) ;
         }
 
-
         $("#newEdit").click(function(){
-            alert("Hello") ;
-            newEntry();
+            //Show or hide the new Entry Form            
+            $("#additionForm").toggleClass("d-none");
+            
          });
+
+        
 });
 
 }
