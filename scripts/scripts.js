@@ -63,7 +63,7 @@
         // Light mode element constants
         const lightmode = document.querySelector("body") ;
         const button = document.querySelector("#darkmode") ;
-        
+
         const table = document.querySelector("#contents") ;
         const menu = document.querySelector("#menu") ;
     
@@ -118,32 +118,29 @@ $(document).ready(function(){
 
 
                 //Create table
-                const $table = $('<table class="table text-center" id="contents"></table>');
-                const $thead = $('<thead></thead>');
+                const $table = $(`<table class="table text-center" id="contents">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID 
+                                                <button id="idSort" class="sort">
+                                                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                                                </button>
+                                            </th>
 
-                const $headerRow = $(`<tr>
-                    <th scope="col">ID 
-                        <button id="idSort" class="sort">
-                            <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
-                        </button>
-                    </th>
+                                            <th scope="col">Name 
+                                                <button id="nameSort" class="sort">
+                                                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                                                </button>
+                                            </th>
 
-                    <th scope="col">Name 
-                        <button id="nameSort" class="sort">
-                            <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
-                        </button>
-                    </th>
-
-                    <th scope="col">Rating 
-                        <button id="rateSort" class="sort">
-                            <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
-                        </button>
-                    </th>
-                </tr>`);
-
-                $thead.append($headerRow);
-                $table.append($thead);
-        
+                                            <th scope="col">Rating 
+                                                <button id="rateSort" class="sort">
+                                                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                                                </button>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>`);
                 const $tbody = $('<tbody></tbody>');
 
                 //Create table data
@@ -360,3 +357,4 @@ $(document).ready(function(){
 /*Live filtering search function */{
 
 }
+
