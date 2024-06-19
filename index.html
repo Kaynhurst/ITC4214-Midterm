@@ -67,6 +67,7 @@
             Video Game Rating Table 
             <button id = "newEdit" class="btn-block m-1" type="button">New</button>
 
+            <!--Game Addition Form-->
             <form id="additionForm" class="text-start d-none">
                 <div class="mb-3">
                     <label for="gameName" class="formLabel">Game Name</label>
@@ -77,9 +78,19 @@
                     <input type="number" class="form-control" id="gameRating" min="0" max="10" step = "0.1"required>
                 </div>
                 <button id ="submit" type="submit" class="btn">Add Game</button>
-
             </form>
 
+            <!--Live filtering Search function-->
+            <form id="searchFunction" class="text-center">
+                <div class="input-group mb-3 mt-3">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+                </div>
+            </form>
+            
+            <!--Dynamic Table-->
             <div id="table"></div>
             </div>
        

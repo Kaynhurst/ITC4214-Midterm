@@ -66,8 +66,19 @@ footer{
     font-size: small;
     border: 0px;
     border-radius: 25%;
+    margin-right: 5px;
 }
 
 #submit{
     background-color: hsl(281, 78%, 75%); 
+}
+
+#editButton > i{
+    width: 25px ;
+    margin: 5px ;
+}
+
+.input-group-text {
+    background-color: #f8f9fa; /* Adjust as needed */
+    border: 1px solid #ced4da; /* Match the input border */
 }

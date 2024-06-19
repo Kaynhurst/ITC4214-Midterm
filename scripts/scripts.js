@@ -37,6 +37,7 @@
         // Dark mode element constants
         const darkmode = document.querySelector("body") ;
         const button = document.querySelector("#darkmode") ;
+
         const table =document.querySelector("#contents") ;
         const menu = document.querySelector("#menu") ;
     
@@ -62,6 +63,7 @@
         // Light mode element constants
         const lightmode = document.querySelector("body") ;
         const button = document.querySelector("#darkmode") ;
+        
         const table = document.querySelector("#contents") ;
         const menu = document.querySelector("#menu") ;
     
@@ -118,13 +120,26 @@ $(document).ready(function(){
                 //Create table
                 const $table = $('<table class="table text-center" id="contents"></table>');
                 const $thead = $('<thead></thead>');
-                const $headerRow = $('<tr></tr>');
 
-                //Create header rows
-                $headerRow.append('<th scope="col">ID <button id="idSort" class="sort"><i id ="icon" class="bi bi-arrow-bar-down small-icon"></i></button></th>');
-                $headerRow.append('<th scope="col">Name <button id="nameSort" class="sort"><i id ="icon" class="bi bi-arrow-bar-down small-icon"></i></button></th>');
-                $headerRow.append('<th scope="col">Rating <button id="rateSort" class="sort"><i id ="icon" class="bi bi-arrow-bar-down small-icon"></i></button></th>');
-                $headerRow.append('<th scope="col">Edit</th>');
+                const $headerRow = $(`<tr>
+                    <th scope="col">ID 
+                        <button id="idSort" class="sort">
+                            <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                        </button>
+                    </th>
+
+                    <th scope="col">Name 
+                        <button id="nameSort" class="sort">
+                            <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                        </button>
+                    </th>
+
+                    <th scope="col">Rating 
+                        <button id="rateSort" class="sort">
+                            <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                        </button>
+                    </th>
+                </tr>`);
 
                 $thead.append($headerRow);
                 $table.append($thead);
@@ -133,12 +148,19 @@ $(document).ready(function(){
 
                 //Create table data
                 data.forEach(item => {
-                    const $row = $('<tr></tr>');
+                    const $row = $(`<tr>
+                                    <td data-type="gameID" >${item.id}</td>
+                                    <td data-type="gameName" >${item.name}</td>
+                                    <td data-type="gameRating">${item.rating}</td>
 
-                    $row.append(`<td data-type="gameID" >${item.id}</td>`);
-                    $row.append(`<td data-type="gameName" >${item.name}</td>`);
-                    $row.append(`<td data-type="gameRating">${item.rating}</td>`);
-                    $row.append('<td><button id= "editButton" class="edit">Edit</button></td>');
+                                    <td>
+                                        <button class="edit" onclick="editEntry(this)">Edit</button>
+                                        <div id= "editButton" class="d-none">
+                                            <i class="bi bi-pencil-square"></i>
+                                            <i class="bi bi-trash"></i>
+                                        </div>
+                                    </td>
+                                </tr>`);
 
                     $tbody.append($row);
                 });
@@ -159,7 +181,11 @@ $(document).ready(function(){
 
     $("#newEdit").click(function(){
         //Show or hide the new Entry Form            
-        $("#additionForm").toggleClass("d-none");
+        $("#additionForm").fadeIn("300",function(){
+            $(this).toggleClass("d-none") ;
+        }); 
+
+            
                 
     });
     
@@ -175,11 +201,19 @@ $(document).ready(function(){
 
         let newID = (Math.max(...tableID)) + 1 ;
 
-        const $row = $('<tr></tr>');
-        $row.append(`<td data-type="gameID">${newID}</td>`);
-        $row.append(`<td data-type="gameName" >${newGame}</td>`);
-        $row.append(`<td data-type="gameRating" >${newRating}</td>`);
-        $row.append('<td><button id= "editButton" class="edit">Edit</button></td>');
+        const $row = $(`<tr>
+                        <td data-type="gameID">${newID}</td>
+                        <td data-type="gameName" >${newGame}</td>
+                        <td data-type="gameRating" >${newRating}</td>
+
+                        <td>
+                            <button class="edit" onclick="editEntry(this)">Edit</button>
+                            <div id= "editButton" class="d-none">
+                                <i class="bi bi-pencil-square"></i>
+                                <i class="bi bi-trash"></i>
+                            </div>
+                        </td>
+                    </tr>`);
 
         $("table tbody").append($row) ;
         
@@ -190,9 +224,40 @@ $(document).ready(function(){
     }); 
 
     //Edit Button
-    $("table tbody tr #editButton").click(function(){
-        alert("Edit Button")
+
+    function editEntry(button){
+
+        const editButton = button.nextElementSibling;
+        $(document).ready(function(){
+
+        //Hide or show the edit elements
+        if($(editButton).hasClass("d-none")) {
+
+            $(editButton).animate(300,function(){
+                $(this).removeClass("d-none").addClass("d-inline-block");
+            });
+
+        } else {
+            $(editButton).fadeIn("slow",function(){
+                $(this).removeClass("d-inline-block").addClass("d-none");
+            });
+
+        }
+        });
+    }
+
+    /* Animation Effects for edit Button
+    $(document).on('mouseenter', '.edit', function() {
+        const editButton = $(this).next('.editButton');
+        editButton.removeClass('d-none').hide().fadeIn(300).addClass('d-inline-block');
     });
+
+    $(document).on('mouseleave', '.editButton', function() {
+        $(this).fadeOut(300, function() {
+            $(this).removeClass('d-inline-block').addClass('d-none');
+        });
+    });
+    */
 }
 
 /*Sorting System */ {
@@ -289,5 +354,9 @@ $(document).ready(function(){
         })
     })
 
+
+}
+
+/*Live filtering search function */{
 
 }
