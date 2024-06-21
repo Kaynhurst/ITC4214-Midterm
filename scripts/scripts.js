@@ -35,6 +35,7 @@
     
             if (table !== null) {
                 table.style.color = "#ffffff";
+
             }
     
             menu.style.backgroundColor = "#2d2e40";
@@ -112,8 +113,8 @@
                 data.forEach(item => {
                     const $row = $(`<tr>
                                     <td data-type="gameID" >${item.id}</td>
-                                    <td data-type="gameName" >${item.name}</td>
-                                    <td data-type="gameRating">${item.rating}</td>
+                                    <td data-type="gameName">${item.name}</td>
+                                    <td data-type="gameRating" >${item.rating}</td>
                                     <td>
                                     <button class="edit" onclick="showEdits(this)">Edit</button>
                                         <div id= "editButton" class="d-none">
@@ -175,7 +176,7 @@
     
             const $row = $(`<tr>
                             <td data-type="gameID">${newID}</td>
-                            <td data-type="gameName" >${newGame}</td>
+                            <td data-type="gameName">${newGame}</td>
                             <td data-type="gameRating" >${newRating}</td>
                             <td>
                                 <button class="edit" onclick="showEdits(this)">Edit</button>
@@ -222,9 +223,12 @@
         }
         });
     }
+    
+  
+
     $(document).ready(function(){
 
-        // Edit Entry
+    // Edit Entry
         $("table").on("click", ".editEntry", function(){ //Listen on the table to ensure new entries get handled
             var row = $(this).closest("tr");
             var gameID = row.find("td[data-type=gameID]").text(); 
@@ -240,46 +244,72 @@
             row.find("td[data-type=gameName]").text(newGameName); 
             row.find("td[data-type=gameRating]").text(newGameRating);
         });
-    
-        // Delete Entry (Event delegation)
+   
+        // Delete Entry
         $("table").on("click", ".deleteEntry", function(){
             var row = $(this).closest("tr");
             row.hide();
         });
+
+
     
-        function sanitizeInput(input) {
-            // Remove leading and trailing whitespace
-            input = input.trim();
-            // Escape HTML characters
-            input = escapeHtml(input);
-            return input;
-        }
+    /*
+    // Function to edit table entry Name
+    $(document).on('dblclick','gameNameButton',function() {
+
+        var newGameName = prompt("Enter the new game name:", $(this).text());
+        
+        newGameName = sanitizeInput(newGameName);
+        $(this).text(newGameName);
+
+    })
+
+    // Function to edit table entry Rating
+    $(document).on('dblclick','gameRateButton',function() {
+        var newGameRating = prompt("Enter the new game name:", $(this).text());
+        
+        newGameRating = sanitizeInput(newGameRating);
+        $(this).text(newGameRating);
+
     
-        function escapeHtml(unsafe) {
-            return unsafe
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-    
-        function sanitizeRating(rating) {
-            // Validate rating format
-            if (/^\d+(\.\d)?$/.test(rating)) { 
-                // Convert to float and limit to one decimal place
-                rating = parseFloat(rating).toFixed(1);
-                if (parseFloat(rating) > 10) {
-                    rating = "10";
-                }
-            } else {
-                rating = "0"; 
+        })    
+*/
+
+});
+
+
+
+    /*Input sanitzing*/{
+    // Sanitize input function
+    function sanitizeInput(input) {
+        input = input.trim();
+        input = escapeHtml(input);
+        return input;
+    }
+
+    // Escape HTML function
+    function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    // Sanitize rating function
+    function sanitizeRating(rating) {
+        if (/^\d+(\.\d)?$/.test(rating)) {
+            rating = parseFloat(rating).toFixed(1);
+            if (parseFloat(rating) > 10) {
+                rating = "10";
             }
-            return rating;
+        } else {
+            rating = "0";
         }
-    
-    });
-    
+        return rating;
+    }
+    }
 
 
     //Delete Entry
@@ -288,7 +318,7 @@
         $("table tbody tr td .deleteEntry").click(function(){
     
             var row = $(this).closest("tr");
-            var gameID = row.find("td[data-type=gameID]").text(); 
+            var gameID = row.find("td[data-type=gameID] button").text(); 
     
             row.hide();
             });
@@ -469,6 +499,49 @@
     }
 
 /*Live filtering search function */{
+    document.addEventListener('DOMContentLoaded', function(){
+        const searchQuery = document.querySelector("#searchFunction") ;
 
+        searchQuery.addEventListener("submit",function(event){
+            event.preventDefault();
+
+            const searchInput = document.querySelector("#userInput").value ;
+            // Array to store rows
+            let rowsArray = [];
+            
+            // Iterate over each table row in tbody
+            $("table tbody tr").each(function(index) {
+                let $row = $(this);
+                let gameID = $row.find("td[data-type=gameID]").text();
+                let gameName = $row.find("td[data-type=gameName]").text();
+                let gameRating = $row.find("td[data-type=gameRating]").text();
+        
+                // Create object for row data
+                let rowData = {
+                    id: gameID,
+                    name: gameName,
+                    rating: gameRating
+                };
+        
+                rowsArray.push(rowData);
+            });
+            
+            console.log(rowsArray[0]); 
+
+        //Search Function
+            for (var i = 0; i < rowsArray.length ;i++){
+
+                if(rowsArray[i].name != searchInput){
+                    
+                    console.log("Not found at: " + rowsArray[i].id) ;
+                    $(rowsArray[i].element).hide();
+                }
+
+            }
+
+        })
+
+    });
+    
 }
 
