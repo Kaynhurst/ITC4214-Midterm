@@ -87,3 +87,26 @@ function checkDarkMode(){
 /*Sorting System */{
     
 }
+
+/*Contact information submittion*/{
+
+    $(document).ready(function() {
+
+        $('.contactForm').on('submit', function(event) {
+
+            event.preventDefault();  // Prevent form submission
+
+            const userName = $("#uName").val();
+            const userMail = $("#uMail").val();
+            const message  = $("#uText").val();
+            const phoneNumber =$("#uNumber").val();
+
+            alert(  'Username entered: ' + userName+
+                    '\nEmail entered: ' + userMail + 
+                    '\nPhone number:' + phoneNumber+
+                    '\nMessage:\n' +  message
+            );
+        });
+    });
+    
+}
