@@ -61,3 +61,19 @@ footer{
     overflow-x: scroll; 
     margin: 0;
 }
+
+#form{
+    text-align: left;
+    padding : 20px;
+}
+
+h2{
+    font-size: 95%;
+    font-weight: 900; 
+    
+}
+
+.form-group{
+    width: 350px;
+}
+    
