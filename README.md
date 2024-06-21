@@ -5,7 +5,7 @@ Michael Strintzis 267457
 Build a website that will allow users to add data to a list.
 
 The website contains :
-1. An index page
+1. An index page  (complete)
 2. An about page (completed)
 3. A contact page (completed)
 
