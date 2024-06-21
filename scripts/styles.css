@@ -82,3 +82,10 @@ footer{
     background-color: #f8f9fa; /* Adjust as needed */
     border: 1px solid #ced4da; /* Match the input border */
 }
+
+.editEntry, .deleteEntry {
+    background-color: hsl(32, 92%, 62%);
+    border: 0px;
+    border-radius: 25%;
+    margin-right: 5px;
+}
