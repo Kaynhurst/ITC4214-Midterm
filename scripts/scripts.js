@@ -321,8 +321,42 @@
     
     //Sorting algorithm
     
-    function sortRows(type,order){      //Type of sorting and order
+    function sortRows(type, order) {
+        switch (type) {
+            case "ID":
+                if (order === "Ascending") {
+                    console.log("ID  Ascending Order");
+            
+                } else if (order === "Descending") {
+                    console.log("ID Descending Order");
 
+                }
+                break;
+    
+            case "Name":
+                if (order === "Ascending") {
+                    console.log("Name Ascending Order");
+
+                } else if (order === "Descending") {
+                    console.log("Name Descending Order");
+
+                }
+                break;
+    
+            case "Rating":
+                if (order === "Ascending") {
+                    console.log("Rating Ascending Order");
+
+                } else if (order === "Descending") {
+                    console.log("Rating Descending Order");
+
+                }
+                break;
+    
+            default:
+                console.log("Invalid type or order specified");
+                break;
+        }
     }
 
     //Sort by Id
@@ -342,7 +376,7 @@
                 $('#rateSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
                 $('#rateSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
 
-                console.log("ID Ascending Order") ;
+                
                 sortRows("ID","Ascending");
                 
             }
@@ -353,7 +387,7 @@
                 $('#idSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
                 arrow = !arrow ;
 
-                console.log("ID Descending Order") ;
+
                 sortRows("ID","Descending");
 
             }
@@ -377,7 +411,7 @@
                 $('#rateSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
                 $('#rateSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
 
-                console.log("Name Ascending Order") ;
+
                 sortRows("Name","Ascending");
 
             }
@@ -388,7 +422,7 @@
                 $('#nameSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
                 arrow = !arrow ;
 
-                console.log("Name Descending Order") ;
+
                 sortRows("Name","Descending");
             }
             
@@ -412,7 +446,7 @@
                 $('#idSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
                 $('#idSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
 
-                console.log("Rating Ascending Order") ;
+
                 sortRows("Rating","Ascending");
             
             }
@@ -424,7 +458,7 @@
                 arrow = !arrow ;
 
                 console.log("Rating Descending Order") ;
-                sortRows("Rating","Descending");
+
             
             }
             
