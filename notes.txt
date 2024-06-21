@@ -1,0 +1,745 @@
+ <tbody>
+                    <tr>
+                        <td> 1</td>
+                        <td>Assassin's Creed III</td>
+                        <td>6.7</td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Persona 5 Royal</td>
+                        <td>8.9</td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Fallout : New Vegas</td>
+                        <td>7.4</td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Watch Dogs 2</td>
+                        <td>9.2</td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td> 
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Minecraft</td>
+                        <td>10</td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Call of Duty: Blacks Ops 4</td>
+                        <td>3.8</td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Hades</td>
+                        <td>10</td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Fortnite</td>
+                        <td>2.3</td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Cyberpunk 2077</td>
+                        <td>7.2</td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Bloodborne</td>
+                        <td>10</td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
+                    </tr>
+                </tbody>
+
+
+<tr>
+    <th scope="col">ID 
+        <button id="idSort" class="sort">
+            <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+        </button>
+    </th>
+
+    <th scope="col">Name 
+        <button id="nameSort" class="sort">
+            <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+        </button>
+    </th>
+
+    <th scope="col">Rating 
+        <button id="rateSort" class="sort">
+            <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+        </button>
+    </th>
+</tr>
+
+<table class="table text-center" id="contents">
+    <thead>
+        <tr>
+            <th scope="col">ID 
+                <button id="idSort" class="sort">
+                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                </button>
+            </th>
+
+            <th scope="col">Name 
+                <button id="nameSort" class="sort">
+                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                </button>
+            </th>
+
+            <th scope="col">Rating 
+                <button id="rateSort" class="sort">
+                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                </button>
+            </th>
+        </tr>
+    </thead>
+</table>
+
+
+
+
+
+    /* Animation Effects for edit Button
+    $(document).on('mouseenter', '.edit', function() {
+        const editButton = $(this).next('.editButton');
+        editButton.removeClass('d-none').hide().fadeIn(300).addClass('d-inline-block');
+    });
+
+    $(document).on('mouseleave', '.editButton', function() {
+        $(this).fadeOut(300, function() {
+            $(this).removeClass('d-inline-block').addClass('d-none');
+        });
+    });
+    */
+
+
+ document.addEventListener('DOMContentLoaded' ,(event) =>{
+        
+        let checkMode = true ;
+        //Dark mode button
+        const darkbutton = document.querySelector("#darkmode") ;
+        
+    
+        darkbutton.addEventListener('click',() => {
+            console.log("Dark mode button pressed.") ;
+            if(!checkMode){
+                $(document).ready(lightModeEnable());
+                console.log("Light Mode") ;
+                isDarkMode = true ;
+
+                //Set a session parameter to track dark mode
+                sessionStorage.setItem("mode","light") ;
+            }
+            else{
+                $(document).ready(darkModeEnable());
+                console.log("Dark Mode") ;
+                isDarkMode = false ;
+
+                //Set a session parameter to track dark mode
+                sessionStorage.setItem("mode","dark") ;
+            }
+    
+            checkMode = !checkMode ;
+            });
+    
+        });
+    
+     
+    function darkModeEnable (){
+    
+        // Dark mode element constants
+        const darkmode = document.querySelector("body") ;
+        const button = document.querySelector("#darkmode") ;
+
+        const table =document.querySelector("#contents") ;
+        const menu = document.querySelector("#menu") ;
+    
+        darkmode.style.backgroundColor= "#2d2e40" ;
+        darkmode.style.color= "#fcf3f6" ;
+        
+        button.innerHTML = "Light Mode" ;
+        button.style.backgroundColor = "#ffffff" ;
+        button.style.color = "#000000" ;
+        
+        //Check if there is a table on the page.
+        if (table != null){
+            table.style.color = "#ffffff" ;
+        }
+    
+        menu.style.backgroundColor= "#2d2e40" ;
+
+    }
+    
+    
+    function lightModeEnable(){
+    
+        // Light mode element constants
+        const lightmode = document.querySelector("body") ;
+        const button = document.querySelector("#darkmode") ;
+
+        const table = document.querySelector("#contents") ;
+        const menu = document.querySelector("#menu") ;
+    
+    
+        lightmode.style.backgroundColor = "#faffffd8" ;
+        lightmode.style.color = "#000000" ;
+    
+        button.innerHTML = "Dark Mode" ;
+        button.style.backgroundColor = "#000000" ;
+        button.style.color = "#ffffff";
+    
+        //Check if there is a table on the page.
+        if (table != null){
+            table.style.color = "#000000" ;
+        }
+    
+        menu.style.backgroundColor = "#ffffff" ;
+    
+        }
+
+
+$(document).ready(function(){
+
+// Function to generate the table
+
+            function generateTable(data) {
+
+
+                //Create table
+                const $table = $(`<table class="table text-center" id="contents">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID 
+                                                <button id="idSort" class="sort">
+                                                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                                                </button>
+                                            </th>
+
+                                            <th scope="col">Name 
+                                                <button id="nameSort" class="sort">
+                                                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                                                </button>
+                                            </th>
+
+                                            <th scope="col">Rating 
+                                                <button id="rateSort" class="sort">
+                                                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                                                </button>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>`);
+                const $tbody = $('<tbody></tbody>');
+
+                //Create table data
+                data.forEach(item => {
+                    const $row = $(`<tr>
+                                    <td data-type="gameID" >${item.id}</td>
+                                    <td data-type="gameName" >${item.name}</td>
+                                    <td data-type="gameRating">${item.rating}</td>
+                                    <td>
+                                        <button class="edit" onclick="editEntry(this)">Edit</button>
+                                        <div id= "editButton" class="d-none">
+                                            <button class="editEntry">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </button>
+                                            <button class="deleteEntry">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>`);
+
+                    $tbody.append($row);
+                });
+
+                $table.append($tbody);
+                
+                return $table;
+            }
+
+// Insert the table into the page
+
+    const tableData = [
+        { id: 1, name: "Assassin's Creed III", rating: 6},
+        { id: 2, name: "Persona 5 Royal", rating: 8 },
+        { id: 3, name: "Fallout : New Vegas", rating: 7},
+        { id: 4, name: "Watch Dogs 2", rating: 9},
+        { id: 5, name: "Minecraft", rating: 10 },
+        { id: 6, name: "Call of Duty: Blacks Ops 4", rating: 3},
+        { id: 7, name: "Hades", rating: 10 },
+        { id: 8, name: "Fortnite", rating: 2},
+        { id: 9, name: "Cyberpunk 2077", rating: 7},
+        { id: 10, name: "Bloodborne", rating: 10 }
+    ];
+
+    $('#table').append(generateTable(tableData));
+    checkDarkMode();
+});
+
+
+
+//Add entry to table
+
+    $("#newEdit").click(function(){
+        //Show or hide the new Entry Form            
+        $("#additionForm").fadeIn("300",function(){
+            $(this).toggleClass("d-none") ;
+        }); 
+
+            
+                
+    });
+    
+    $("#additionForm").on("submit",function(event){
+        event.preventDefault() ;    //Prevent the page from refreshing
+
+        const newGame = $("#gameName").val();
+        const newRating = $("#gameRating").val();
+
+        let tableID = $("table tbody tr td[data-type='gameID']").map(function() {
+            return parseInt($(this).text());
+        }).get();
+
+        let newID = (Math.max(...tableID)) + 1 ;
+
+        const $row = $(`<tr>
+                        <td data-type="gameID">${newID}</td>
+                        <td data-type="gameName" >${newGame}</td>
+                        <td data-type="gameRating" >${newRating}</td>
+                        <td>
+                            <button class="edit" onclick="editEntry(this)">Edit</button>
+                            <div id= "editButton" class="d-none">
+                                <button class="editEntry">
+                                    <i class="bi bi-pencil-square"></i>
+                                </button>
+                                <button class = "deleteEntry">
+                                <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>`);
+
+        $("table tbody").append($row) ;
+        
+        //Clear Form for a new Entry
+        $("#gameName").val('');
+        $("#gameRating").val('');
+        
+    }); 
+
+    //Edit Button
+
+    function editEntry(button){
+
+        const editButton = button.nextElementSibling;
+        $(document).ready(function(){
+
+        //Hide or show the edit elements
+        if($(editButton).hasClass("d-none")) {
+
+            $(editButton).animate(300,function(){
+                $(this).removeClass("d-none").addClass("d-inline-block");
+            });
+
+        } else {
+            $(editButton).fadeIn("slow",function(){
+                $(this).removeClass("d-inline-block").addClass("d-none");
+            });
+
+        }
+        });
+    }
+
+    /* Animation Effects for edit Button
+    $(document).on('mouseenter', '.edit', function() {
+        const editButton = $(this).next('.editButton');
+        editButton.removeClass('d-none').hide().fadeIn(300).addClass('d-inline-block');
+    });
+
+    $(document).on('mouseleave', '.editButton', function() {
+        $(this).fadeOut(300, function() {
+            $(this).removeClass('d-inline-block').addClass('d-none');
+        });
+    });
+    */
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const editEntries = document.querySelectorAll(".editEntry");
+    
+        if (editEntries.length > 0) {
+            editEntries.forEach(entry => {
+                entry.addEventListener("click", () => {
+                    console.log("Element clicked");
+                });
+            });
+        } else {
+            console.log("No elements found with the class .editEntry");
+        }
+    });
+
+    /*Dark Mode */    {
+    document.addEventListener('DOMContentLoaded', function() {
+        let isDarkMode = false; // Initialize dark mode state
+    
+        const darkButton = document.querySelector("#darkmode");
+    
+        darkButton.addEventListener('click', function() {
+            console.log("Dark mode button pressed.");
+    
+            if (!isDarkMode) {
+                darkModeEnable();
+                console.log("Dark Mode");
+                isDarkMode = true;
+                sessionStorage.setItem("mode", "dark");
+            } else {
+                lightModeEnable();
+                console.log("Light Mode");
+                isDarkMode = false;
+                sessionStorage.setItem("mode", "light");
+            }
+        });
+    
+        function darkModeEnable() {
+            const darkmode = document.querySelector("body");
+            const button = document.querySelector("#darkmode");
+            const table = document.querySelector("#contents");
+            const menu = document.querySelector("#menu");
+    
+            darkmode.style.backgroundColor = "#2d2e40";
+            darkmode.style.color = "#fcf3f6";
+    
+            button.innerHTML = "Light Mode";
+            button.style.backgroundColor = "#ffffff";
+            button.style.color = "#000000";
+    
+            if (table !== null) {
+                table.style.color = "#ffffff";
+            }
+    
+            menu.style.backgroundColor = "#2d2e40";
+        }
+    
+        function lightModeEnable() {
+            const lightmode = document.querySelector("body");
+            const button = document.querySelector("#darkmode");
+            const table = document.querySelector("#contents");
+            const menu = document.querySelector("#menu");
+    
+            lightmode.style.backgroundColor = "#faffffd8";
+            lightmode.style.color = "#000000";
+    
+            button.innerHTML = "Dark Mode";
+            button.style.backgroundColor = "#000000";
+            button.style.color = "#ffffff";
+    
+            if (table !== null) {
+                table.style.color = "#000000";
+            }
+    
+            menu.style.backgroundColor = "#ffffff";
+        }
+    
+        // Check the Dark mode session parameter to set initial mode
+        function checkDarkMode() {
+            if (sessionStorage.getItem("mode") === "dark") {
+                darkModeEnable();
+                isDarkMode = true;
+            } else {
+                lightModeEnable();
+                isDarkMode = false;
+            }
+        }
+    
+        // Initial check on page load
+        checkDarkMode();
+    });
+    
+}
+
+/*Table generation */ {
+    $(document).ready(function() {
+        // Function to generate the table
+        function generateTable(data) {
+                //Create table
+                const $table = $(`<table class="table text-center" id="contents">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID 
+                                <button id="idSort" class="sort">
+                                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                                </button>
+                            </th>
+
+                            <th scope="col">Name 
+                                <button id="nameSort" class="sort">
+                                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                                </button>
+                            </th>
+
+                            <th scope="col">Rating 
+                                <button id="rateSort" class="sort">
+                                    <i id ="icon" class="bi bi-arrow-bar-down small-icon"></i>
+                                </button>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>`);
+            const $tbody = $('<tbody></tbody>');
+
+                //Create table data
+                data.forEach(item => {
+                    const $row = $(`<tr>
+                                    <td data-type="gameID" >${item.id}</td>
+                                    <td data-type="gameName" >${item.name}</td>
+                                    <td data-type="gameRating">${item.rating}</td>
+                                    <td>
+                                        <button class="edit" onclick="editEntry(this)">Edit</button>
+                                        <div id= "editButton" class="d-none">
+                                            <button class="editEntry">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </button>
+                                            <button class="deleteEntry">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>`);
+
+                    $tbody.append($row);
+                });
+
+                $table.append($tbody);
+
+        return $table;
+        }
+
+    
+        // Table data array
+        const tableData = [
+            { id: 1, name: "Assassin's Creed III", rating: 6},
+            { id: 2, name: "Persona 5 Royal", rating: 8 },
+            { id: 3, name: "Fallout : New Vegas", rating: 7},
+            { id: 4, name: "Watch Dogs 2", rating: 9},
+            { id: 5, name: "Minecraft", rating: 10 },
+            { id: 6, name: "Call of Duty: Blacks Ops 4", rating: 3},
+            { id: 7, name: "Hades", rating: 10 },
+            { id: 8, name: "Fortnite", rating: 2},
+            { id: 9, name: "Cyberpunk 2077", rating: 7},
+            { id: 10, name: "Bloodborne", rating: 10 }
+        ];
+    
+        // Append the generated table to the page
+        $('#table').append(generateTable(tableData));
+    
+        // Event listener for the Add New button
+        $("#newEdit").click(function() {
+            $("#additionForm").fadeIn("", function() {
+                $(this).toggleClass("d-none");
+            });
+        });
+    
+        // Event listener for form submission
+        $("#additionForm").on("submit", function(event) {
+            event.preventDefault();     //Prevent the page from refreshing
+    
+            const newGame = $("#gameName").val();
+            const newRating = $("#gameRating").val();
+    
+            let tableID = $("table tbody tr td[data-type='gameID']").map(function() {
+                return parseInt($(this).text());
+            }).get();
+    
+            let newID = (Math.max(...tableID)) + 1 ;
+    
+            const $row = $(`<tr>
+                            <td data-type="gameID">${newID}</td>
+                            <td data-type="gameName" >${newGame}</td>
+                            <td data-type="gameRating" >${newRating}</td>
+                            <td>
+                                <button class="edit" onclick="editEntry(this)">Edit</button>
+                                <div id= "editButton" class="d-none">
+                                    <button class="editEntry">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                    <button class = "deleteEntry">
+                                    <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>`);
+    
+            $("table tbody").append($row) ;
+            
+            //Clear Form for a new Entry
+            $("#gameName").val('');
+            $("#gameRating").val('');
+                
+    });
+
+    });
+    
+    //Edit Button
+
+    function editEntry(button){
+
+        const editButton = button.nextElementSibling;
+        $(document).ready(function(){
+
+        //Hide or show the edit elements
+        if($(editButton).hasClass("d-none")) {
+
+            $(editButton).animate(300,function(){
+                $(this).removeClass("d-none").addClass("d-inline-block");
+            });
+
+        } else {
+            $(editButton).fadeIn("slow",function(){
+                $(this).removeClass("d-inline-block").addClass("d-none");
+            });
+
+        }
+        });
+    }
+
+    /* Animation Effects for edit Button
+    $(document).on('mouseenter', '.edit', function() {
+        const editButton = $(this).next('.editButton');
+        editButton.removeClass('d-none').hide().fadeIn(300).addClass('d-inline-block');
+    });
+
+    $(document).on('mouseleave', '.editButton', function() {
+        $(this).fadeOut(300, function() {
+            $(this).removeClass('d-inline-block').addClass('d-none');
+        });
+    });
+    */
+    document.addEventListener("DOMContentLoaded", function() {
+        // Event delegation for .editEntry elements
+        document.addEventListener("click", function(event) {
+            if (event.target.classList.contains("editEntry")) {
+                // Find the closest <tr> parent of the clicked button
+                const closestRow = event.target.closest("tr");
+    
+                // Find the game ID within the <tr>
+                const gameID = closestRow.querySelector("td[data-type='gameID']").textContent;
+    
+                // Display a message with the game ID
+                console.log(`Clicked on game with ID: ${gameID}`);
+                // You can replace console.log with any action you want (like showing an alert or modifying UI)
+            }
+        });
+    });
+}
+/*Sorting System */ {
+
+    //Sort by Id
+    $(document).ready(function(){
+
+        let arrow = true ; //Arrow points down for an descending order
+        $("#idSort").click(function(){
+
+            //Ascending Order
+            if(arrow){
+                $('#idSort > #icon').removeClass('bi bi-arrow-bar-down small-icon') ;
+                $('#idSort > #icon').addClass('bi bi-arrow-bar-up small-icon') ;
+                arrow = !arrow ;
+
+
+                //Reset the other buttons
+                $('#nameSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+                $('#nameSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+                $('#rateSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+                $('#rateSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+
+            }
+
+            //Descending Order
+            else {
+                $('#idSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+                $('#idSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+                arrow = !arrow ;
+            }
+            
+            })
+    });
+
+    //Sort by Name
+        $(document).ready(function(){
+                  
+        let arrow = true ; //Arrow points down for an descending order
+
+        $("#nameSort").click(function(){
+            
+            //Ascending Order
+            if(arrow){
+                $('#nameSort > #icon').removeClass('bi bi-arrow-bar-down small-icon') ;
+                $('#nameSort > #icon').addClass('bi bi-arrow-bar-up small-icon') ;
+                arrow = !arrow ;
+
+                $('#idSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+                $('#idSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+                $('#rateSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+                $('#rateSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+
+            }
+
+            //Descending Order
+            else {
+                $('#nameSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+                $('#nameSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+                arrow = !arrow ;
+            }
+            
+        })
+    });
+
+    //Sort by Rating
+
+    $(document).ready(function(){
+
+        let arrow = true ; //Arrow points down for an descending order
+
+        $("#rateSort").click(function(){
+            
+            //Ascending Order
+            if(arrow){
+                $('#rateSort > #icon').removeClass('bi bi-arrow-bar-down small-icon') ;
+                $('#rateSort > #icon').addClass('bi bi-arrow-bar-up small-icon') ;
+                arrow = !arrow ;
+
+                $('#nameSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+                $('#nameSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+                $('#idSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+                $('#idSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+            
+            }
+
+            //Descending Order
+            else {
+                $('#rateSort > #icon').removeClass('bi bi-arrow-bar-up small-icon') ;
+                $('#rateSort > #icon').addClass('bi bi-arrow-bar-down small-icon') ;
+                arrow = !arrow ;
+            }
+            
+        })
+    })
+
+
+}
+
+/*Live filtering search function */{
+
+}
+
