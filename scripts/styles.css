@@ -156,9 +156,38 @@ h2{
     height: 100%;
 }
 
-.carouselImage{
-    width: 500px;
-    height: 250px;
+
+
+.carousel {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.carousel .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel .carousel-item {
+    display: none;
+    position: relative;
+    backface-visibility: hidden;
+}
+
+.carousel .carousel-item.active {
     display: block;
+    justify-content: center;
     align-items: center;
+}
+
+.carousel .carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(100%);
 }
