@@ -29,6 +29,7 @@ footer{
     background-color: #faffff; 
     padding-right: 50%;
     align-items: start;
+    z-index: 1;
 }
 
 .menu .logo{
