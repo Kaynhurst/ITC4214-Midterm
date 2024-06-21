@@ -13,7 +13,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./scripts/styles.css">
-    
 
 </head>
 
@@ -68,72 +67,73 @@
             <table  class="table text-center" id = "contents">
                 <thead>
                     <tr>
-                        <th scope="col">ID <button><i class="bi bi-arrow-bar-down small-icon"></button></i></th>
-                        <th scope="col">Name <button><i class="bi bi-arrow-bar-down small-icon"></button></th>
-                        <th scope="col">Rating <button><i class="bi bi-arrow-bar-down small-icon"></button></th>
+                        <th scope="col">ID <button id="idSort" class="sort"><i id= "icon"class="bi bi-arrow-bar-down small-icon"></button></i></th>
+                        <th scope="col">Name <button id="nameSort" class="sort"><i id ="icon" class="bi bi-arrow-bar-down small-icon"></button></th>
+                        <th scope="col">Rating <button id="rateSort" class="sort"><i id = "icon" class="bi bi-arrow-bar-down small-icon"></button></th>
                         <th scope="col">Edit</th>
                     </tr>
                 </thead>
                 <tbody>
+                    
                     <tr>
                         <td> 1</td>
                         <td>Assassin's Creed III</td>
                         <td>6.7</td>
-                        <td><button>Edit</button></td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Persona 5 Royal</td>
                         <td>8.9</td>
-                        <td><button>Edit</button></td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Fallout : New Vegas</td>
                         <td>7.4</td>
-                        <td><button>Edit</button></td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>Watch Dogs 2</td>
                         <td>9.2</td>
-                        <td><button>Edit</button></td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td> 
                     </tr>
                     <tr>
                         <td>5</td>
                         <td>Minecraft</td>
                         <td>10</td>
-                        <td><button>Edit</button></td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
                     </tr>
                     <tr>
                         <td>6</td>
                         <td>Call of Duty: Blacks Ops 4</td>
                         <td>3.8</td>
-                        <td><button>Edit</button></td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
                     </tr>
                     <tr>
                         <td>7</td>
                         <td>Hades</td>
                         <td>10</td>
-                        <td><button>Edit</button></td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
                     </tr>
                     <tr>
                         <td>8</td>
                         <td>Fortnite</td>
                         <td>2.3</td>
-                        <td><button>Edit</button></td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
                     </tr>
                     <tr>
                         <td>9</td>
                         <td>Cyberpunk 2077</td>
                         <td>7.2</td>
-                        <td><button>Edit</button></td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
                     </tr>
                     <tr>
                         <td>10</td>
                         <td>Bloodborne</td>
                         <td>10</td>
-                        <td><button>Edit</button></td>
+                        <td><button id ="editbutton" class="edit">Edit</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -147,10 +147,13 @@
             ITC4214 Midterm Assignment
         </footer>
 
-    <script src="./scripts/scripts.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="crossorigin="anonymous"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
             integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
             integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="./scripts/scripts.js"></script>
     </body>        
 </html>

@@ -6,7 +6,7 @@ body{
     white-space: nowrap;
     padding : 3% ;
     font-size: 100%;
-    background-color: hsla(180, 100%, 99%, 0.75);
+    background-color: #faffffd8;
 
 }
 
@@ -14,7 +14,7 @@ footer{
     position:relative ;
     vertical-align: bottom;
     padding: 5px;
-    margin-top : 95%;
+    margin-top :25%;
  
 }
 
@@ -26,9 +26,10 @@ footer{
 .menu{
     position: sticky;
     top: 0 ;
-    background-color: hsl(0, 0%, 100%); 
+    background-color: #faffff; 
     padding-right: 50%;
     align-items: start;
+    z-index: 1;
 }
 
 .menu .logo{
@@ -62,6 +63,45 @@ footer{
     margin: 0;
 }
 
+.sort , .edit{
+    background-color: hsl(281, 78%, 75%); 
+    font-size: small;
+    border: 0px;
+    border-radius: 25%;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+  .row {
+    margin: 0 -5px;
+} 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+  .card {
+    font-size: 100%;
+    font-family:'Times New Roman', Times, serif;
+    box-shadow: 0 4px 8px 0 rgba(97, 78, 36, 0.816);
+    background-color: #df9fffc9;
+    padding: 16px;
+    text-align: start;
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+    overflow: hidden; 
+  }
+.portrait{
+    width: 200px;
+    height: 100%;
+}
+
 #form{
     text-align: left;
     padding : 20px;
@@ -77,3 +117,41 @@ h2{
     width: 350px;
 }
     
+.sort , .edit{
+    background-color: hsl(281, 78%, 75%); 
+    font-size: small;
+    border: 0px;
+    border-radius: 25%;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+  .row {
+    margin: 0 -5px;
+} 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+  .card {
+    font-size: 100%;
+    font-family:'Times New Roman', Times, serif;
+    box-shadow: 0 4px 8px 0 rgba(97, 78, 36, 0.816);
+    background-color: #df9fffc9;
+    padding: 16px;
+    text-align: start;
+    word-wrap: break-word;
+    overflow-wrap: break-word; 
+    overflow: hidden; 
+  }
+.portrait{
+    width: 200px;
+    height: 100%;
+}
